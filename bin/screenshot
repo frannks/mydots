@@ -1,0 +1,93 @@
+#!/bin/sh
+
+check_dependency() {
+    if ! command -v "$1" >/dev/null 2>&1; then
+        printf "\033[1;31mError:\033[0m %s is not found. Aborting.\n" "$1" >&2
+        exit 1
+    fi
+}
+
+for dep in shotgun hacksaw xclip xdotool notify-send xdg-user-dir; do
+    check_dependency "$dep"
+done
+
+screenshot_dir="$(xdg-user-dir PICTURES)/Screenshots"
+
+if [ ! -d "$screenshot_dir" ]; then
+    mkdir -p "$screenshot_dir"
+fi
+
+clipboard() {
+    xclip -selection clipboard -t image/png
+}
+
+full() {
+    filename="$screenshot_dir/$(date "+%-Y-%m-%d-%H%M%S")_screenshot.png"
+    shotgun -s "$filename" &&
+        notify-send "Capture" "Fullscreen screenshot taken" -i "$filename"
+}
+
+sel() {
+    filename="$screenshot_dir/$(date "+%-Y-%m-%d-%H%M%S")_screenshot.png"
+    shotgun -g "$(hacksaw)" "$filename" &&
+        notify-send "Capture" "Selection screenshot taken" -i "$filename"
+}
+
+active() {
+    filename="$screenshot_dir/$(date "+%-Y-%m-%d-%H%M%S")_screenshot.png"
+    shotgun -i "$(xdotool getactivewindow)" "$filename" &&
+        notify-send "Capture" "Active window screenshot taken" -i "$filename"
+}
+
+full_copy() {
+    filename="$(mktemp -u --suffix=.png)"
+    shotgun -s "$filename" &&
+        clipboard < "$filename" &&
+        notify-send "Capture" "Fullscreen screenshot saved in clipboard" -i "$filename" &&
+        rm "$filename"
+}
+
+sel_copy() {
+    filename="$(mktemp -u --suffix=.png)"
+    shotgun -g "$(hacksaw)" "$filename" &&
+        clipboard < "$filename" &&
+        notify-send "Capture" "Selection screenshot saved in clipboard" -i "$filename" &&
+        rm "$filename"
+}
+
+active_copy() {
+    filename="$(mktemp -u --suffix=.png)"
+    shotgun -i "$(xdotool getactivewindow)" "$filename" &&
+        clipboard < "$filename" &&
+        notify-send "Capture" "Active window screenshot saved in clipboard" -i "$filename" &&
+        rm "$filename"
+}
+
+selected_option=$(printf "Full Screenshot\nSelection Screenshot\nActive Window Screenshot\nFull Screenshot (copy)\nSelection Screenshot (copy)\nActive Window Screenshot (copy)" | rofi -dmenu -p "Screenshot" -lines 10 -font "Fira Code Retina 10")
+
+case "$selected_option" in
+    "Full Screenshot")
+        sleep 0.5
+        full
+        ;;
+    "Selection Screenshot")
+        sleep 0.5
+        sel
+        ;;
+    "Active Window Screenshot")
+        sleep 0.5
+        active
+        ;;
+    "Full Screenshot (copy)")
+        sleep 0.5
+        full_copy
+        ;;
+    "Selection Screenshot (copy)")
+        sleep 0.5
+        sel_copy
+        ;;
+    "Active Window Screenshot (copy)")
+        sleep 0.5
+        active_copy
+        ;;
+esac
