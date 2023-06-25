@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=PollyMC Linux
+Type=Application
+Comment=Play Minecraft game
+Terminal=false
+Exec=/home/frank/Franks/Games/Minecraft/PollyMC-Linux-6.3-x86_64.AppImage
+Categories=Development;
