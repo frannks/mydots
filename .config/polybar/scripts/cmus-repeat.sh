@@ -24,7 +24,7 @@ then
 poly_repeat && music_duration    
 else
 #sed 's/\|//'
-printf "|| "
+printf ""
 fi
 }
 
