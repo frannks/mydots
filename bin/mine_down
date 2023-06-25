@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# limpar tela
+clear
+
+# checagem de pacote
+[ ! `command -v wget` ] && echo "wget não instalado, faça a instalação" && exit 1
+
+# limpar tela
+clear
+
+# checagem de pasta
+DIRECTORY="$HOME/Franks/Games/Minecraft"
+if [ -d "$DIRECTORY" ] ; then
+  clear
+else
+  mkdir -pv $HOME/Franks/Games/Minecraft
+fi
+
+# instalando appimage
+cd $HOME/Franks/Games/Minecraft
+wget -c "https://github.com/fn2006/PollyMC/releases/download/6.3/PollyMC-Linux-6.3-x86_64.AppImage"
+chmod +x PollyMC-Linux-6.3-x86_64.AppImage
+cd $HOME/.local/share/applications && wget -c "https://git.envs.net/fraanks/dotfiles/raw/branch/main/PollyMC.desktop"
+cd $HOME && clear && exit 0
