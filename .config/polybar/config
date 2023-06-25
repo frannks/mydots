@@ -1,0 +1,711 @@
+# ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗ 
+# ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+# ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+# ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+# ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+# ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+
+# @FranklinTech
+# Franklin Souza
+# https://github.com/jaagr/polybar
+
+#################################################################
+#                             CORES                             #
+#################################################################
+
+#[colors]
+#background = #00000000
+#background = #191919
+#foreground = #FFFFFF
+#alert = #a36666
+
+#################################################################
+#                                PYWAL                          #
+#################################################################
+
+[colors]
+background = ${xrdb:color0:#222}
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
+
+#################################################################
+#                               BARRA CIMA                      #
+#################################################################
+
+[bar/up]
+monitor = ${env:MONITOR:VGA-0}
+dpi = 80
+width = 100%
+height = 16
+#width = 80%
+#offset-x = 10%
+#pffset-y = 4px
+#override-redirect = true
+#radius = 12
+#fixed-center = true
+top = true
+enable-ipc = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+#line-size = 1
+#line-color = ${colors.foreground}
+
+#border-size = 1
+#border-color = ${colors.foreground}
+
+#border-bottom-size = 1
+#border-bottom-color = ${colors.foreground}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 2
+module-margin-right = 2
+
+#################################################################
+#                       FONTS BARRA CIMA                        #
+#################################################################
+
+font-0 = "Poppins:style=Regular:pixelsize=10;2"
+font-1 = "xos4 Terminess Powerline:pixelsize=13;1"
+font-2 = "Hack Nerd Font:style=Regular:pixelsize=10;2"
+font-3 = "Font Awesome 5 Brands:style=Regular:pixelsize=8"
+
+#################################################################
+#                       SEPARADOR BARRA CIMA                    #
+#################################################################
+
+separator = |
+
+#################################################################
+#                        MÓDULOS BARRA CIMA                     #
+#################################################################
+
+modules-left = statusmusic prev-cmus play-cmus next-cmus repeat-cmus
+modules-center = clima
+modules-right = pulse info-redshift-temp pacman calendar date powermenu
+
+#################################################################
+#                        OPTIONS IGNORE                         #
+#################################################################
+
+#wm-restack = i3
+
+#scroll-up = i3wm-wsnext
+#scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+#################################################################
+#                            BARRA BAIXO                        #
+#################################################################
+
+[bar/down]
+monitor = ${env:MONITOR:VGA-0}
+dpi = 80
+width = 100%
+#width = 80%
+height = 16
+#offset-x = 10%
+#pffset-y = 4px
+#override-redirect = true
+#radius = 0
+#fixed-center = true
+bottom = true
+enable-ipc = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+#line-size = 2
+#line-color = ${colors.foreground}
+
+#border-size = 1
+#border-color = ${colors.foreground}
+
+#border-top-size = 1
+#border-top-color = ${colors.foreground}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 1
+module-margin-right = 1
+
+#################################################################
+#                        FONTS BARRA BAIXO                      #
+#################################################################
+
+font-0 = "Poppins:style=Regular:pixelsize=10;2"
+font-1 = "xos4 Terminess Powerline:pixelsize=13;1"
+font-2 = "Hack Nerd Font:style=Regular:pixelsize=10;2"
+font-3 = "Font Awesome 5 Brands:style=Regular:pixelsize=8"
+
+#################################################################
+#                       SEPARADOR BARRA BAIXO                   #
+#################################################################
+
+separator = |
+
+#################################################################
+#                       MÓDULOS BARRA BAIXO                     #
+#################################################################
+
+modules-left = i3
+modules-center = dolar
+modules-right = xkeyboard colorpicker scratchpad-indicator up
+
+#################################################################
+#                        TRAY BARRA BAIXO                       #
+#################################################################
+
+tray-position = right
+tray-padding = 3
+tray-detached = false
+tray-maxsize = 10
+tray-transparent = false
+tray-offset-y = 0
+tray-offset-x = 0
+
+#tray-scale = 1.0
+#tray-background = #00000000
+
+#################################################################
+#                         MÓDULO DE TITULO                      #
+#################################################################
+
+[module/title]
+type = internal/xwindow
+
+#format =   <label>
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+#format-underline = ${colors.foreground}
+#label-underline = ${colors.foreground}
+
+label = %title%
+label-foreground = ${colors.foreground}
+label-maxlen = 50
+
+label-empty = No Windows
+label-empty-foreground = ${colors.foreground}
+
+#################################################################
+#                         MÓDULO DO TECLADO                     #
+#################################################################
+
+[module/xkeyboard]
+type = internal/xkeyboard
+#blacklist-1 = num lock
+
+#format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+#format-prefix-underline = ${colors.foreground}
+
+label-layout = %layout%
+#label-layout-underline = ${colors.foreground}
+#label-layout-foreground = ${colors.foreground}
+#label-layout-background = ${colors.background}
+
+label-indicator-padding = 0
+label-indicator-margin = 0
+#label-indicator-background = ${colors.background}
+#label-indicator-underline = ${colors.foreground}
+
+#################################################################
+#                     MÓDULO FILESYSTEM - HOME                  #
+#################################################################
+
+[module/filesystem]
+type = internal/fs
+interval = 600
+
+mount-0 = /home
+#fixed-values = true
+#spacing = 2
+
+format-mounted-prefix = "  "
+format-mounted-prefix-foreground = ${colors.foreground}
+#label-mounted-underline = #ffffff
+#format-mounted-prefix-underline = #ffffff
+format = <label>
+
+format-mounted = <label-mounted>
+
+label-mounted = %used%
+#label-mounted = %free%
+label-unmounted = %mountpoint% Não montado
+#label-unmounted-foreground = ${colors.foreground-alt}
+
+#################################################################
+#                      MÓDULO FILESYSTEM - ROOT                 #
+#################################################################
+
+[module/filesystem2]
+type = internal/fs
+interval = 600
+
+mount-0 = /
+#fixed-values = true
+#spacing = 2
+
+format-mounted-prefix = " 濫 "
+format-mounted-prefix-foreground = ${colors.foreground}
+#format-mounted-foreground = ${colors.foreground}
+#label-mounted-underline = ${colors.foreground}
+#format-mounted-prefix-underline = ${colors.foreground}
+
+format = <label>
+
+format-mounted = <label-mounted>
+
+label-mounted =  %used%
+#label-mounted = %free%
+label-unmounted = %mountpoint% Não montado
+#label-unmounted-foreground = ${colors.foreground-alt}
+
+#################################################################
+#                         MÓDULO BACKLIGHT                      #
+#################################################################
+
+#[module/backlight]
+#type = custom/script
+#interval = 0.2
+#exec = ~/.config/polybar/scripts/backlight.sh
+
+#scroll-up = exec light -A 5
+#scroll-down = exec light -U 5
+
+#format-prefix = " "
+
+#label = %output%
+#label-foreground = ${colors.fg}
+#format-padding = 1
+
+#################################################################
+#                         MÓDULO I3-GAPS                        #
+#################################################################
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+pin-workspaces = true
+enable-click = true
+enable-scroll = false
+reverse-scroll = false
+fuzzy-match = true
+
+strip-wsnumbers = false
+label-state-foreground = ${colors.foreground}
+
+label-mode = %mode%
+label-mode-foreground = ${colors.foreground}
+label-mode-background = ${colors.background}
+label-mode-underline = ${colors.alert}
+label-mode-padding = 1
+
+label-focused = %name%
+label-focused-foreground = ${colors.background}
+label-focused-background = ${colors.foreground} 
+label-focused-underline = ${colors.alert}
+label-focused-padding = 2
+
+label-unfocused = %name%
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-background = ${colors.background}
+#label-unfocused-underline = ${colors.foreground}
+label-unfocused-padding = 2
+
+label-visible = %index%
+label-visible-foreground = ${colors.foreground}
+label-visible-background = ${colors.background}
+label-visible-underline = #ebdbb2
+label-visible-padding = 2
+
+label-urgent = %name%
+label-urgent-foreground = ${colors.foreground}
+label-urgent-background = ${colors.alert}
+label-urgent-underline = ${colors.foreground}
+label-urgent-padding = 2
+
+#################################################################
+#               SEPARADOR WS (WORKSAPCES) i3WM                  #
+#################################################################
+
+label-separator = |
+label-separator-padding = 1
+label-separator-foreground = ${colors.foreground}
+
+#################################################################
+#                          MÓDULO CPU                           #
+#################################################################
+
+#[module/cpu]
+#type = internal/cpu
+#interval = 5
+#format-prefix = "  "
+#format-prefix-foreground = ${colors.foreground}
+#format-underline = ${colors.foreground}
+#label = %percentage%%
+#warn-percentage = 90
+
+#################################################################
+#                            MÓDULO MEMORY                      #
+#################################################################
+
+#[module/memory]
+#type = internal/memory
+#interval = 15
+#format-prefix = "  "
+#format-prefix-foreground = ${colors.foreground}
+#format-underline = ${colors.foreground}
+#label = %percentage_used%%
+#warn-percentage = 90
+
+#[module/swap]
+#type = internal/memory
+#interval = 15
+#format-prefix = "  "
+#format-prefix-foreground = ${colors.foreground}
+#format-underline = ${colors.foreground}
+#label = %percentage_swap_used%%
+#warn-percentage = 90
+
+#################################################################
+#                            MÓDULO DATE                        #
+#################################################################
+
+[module/date]
+type = internal/date
+interval = 1
+
+#date = "%a %d/%m/%y"
+#date-alt = " %a %d/%m/%y"
+
+time = %I:%M:%S %p
+#time = %I:%M %p
+#time = %H:%M
+#time = %H: %M: %S
+#time-alt = %H:%M:%S
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+#format-underline = #cc241d
+#format-background = #cc241d
+#format-foreground = #FE1818
+
+label = %date% %time%
+
+#################################################################
+#                          MÓDULO PULSEAUDIO                    #
+#################################################################
+
+[module/pulse]
+type = internal/pulseaudio
+use-ui-max = true
+
+format-volume = <label-volume>
+#format-volume-underline = #458588
+#format-volume-background = #458588
+#label-volume =   %percentage%%
+#label-volume =  %percentage%%
+label-volume =  %percentage%%
+label-volume-foreground = ${colors.foreground}
+
+label-muted =  Sem som
+label-muted-foreground = ${colors.alert}
+format-muted-underline = ${colors.alert}
+
+#################################################################
+#                            MÓDULO ALSA                        #
+#################################################################
+
+[module/alsa]
+type = internal/alsa
+use-ui-max = true
+
+format-volume = <label-volume>
+format-volume-prefix = " 墳 "
+format-volume-underline = ${colors.foreground}
+format-volume-prefix-foreground = ${colors.foreground}
+label-volume = %percentage%%
+
+format-muted-prefix = " "
+format-muted-foreground = ${colors.alert}
+format-muted-underline = ${colors.alert}
+label-muted = Sem som
+
+#################################################################
+#                         MÓDULO POWERMENU                      #
+#################################################################
+
+[module/powermenu]
+type = custom/menu
+expand-right = true
+format-spacing = 1
+
+label-open = " "
+label-open-foreground = ${colors.foreground}
+#format-underline = #ffffff
+#label-open-foreground = ${colors.foreground}
+label-close = Cancel
+label-close-foreground = ${colors.alert}
+label-separator =|
+label-separator-foreground = ${colors.foreground}
+
+menu-0-0 = "Exit"
+menu-0-0-exec = menu-open-1
+menu-0-1 = "Suspend"
+menu-0-1-exec = menu-open-2
+menu-0-2 = "Reboot"
+menu-0-2-exec = menu-open-3
+menu-0-3 = "Shutdown"
+menu-0-3-exec = menu-open-4
+menu-1-0 = "Exit NOW!"
+menu-1-0-exec = i3-msg exit
+menu-2-0 = "SuspeND NOW!"
+menu-2-0-exec = systemctl suspend
+menu-3-0 = "Reboot NOW!"
+menu-3-0-exec = systemctl reboot
+menu-4-0 = "Shutdown NOW!"
+menu-4-0-exec = systemctl poweroff
+
+#################################################################
+#                          IGNORE OPTIONS                       #
+#################################################################
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+# vim:ft=dosini
+
+#################################################################
+#                           MÓDULO MPD                          #
+#################################################################
+
+#[module/mpd]
+#type = internal/mpd
+#format-online = <label-song> <toggle> <icon-repeatone> <label-time> <icon-stop>
+#format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next> <label-time>
+#format-online = <label-song> <icon-prev> <icon-stop> <toggle> <icon-next> <label-time> <bar-progress>
+#format-online = <label-song> <label-time>
+
+#icon-prev = 
+#icon-stop = 
+#icon-play = 
+#icon-pause = 
+#icon-next = 
+#icon-seekb = seekb
+#icon-seekf = seekf
+#icon-random = rdm
+#icon-repeat = 
+#icon-repeatone = ¹
+#icon-single = single
+#icon-consume = consume
+
+# Aplicar somente se a <bar-progress> estiver sendo usada
+#bar-progress-width = 10
+#bar-progress-indicator = "|"
+#bar-progress-fill = ""
+#bar-progress-fill-foreground = ${colors.foreground}
+#bar-progress-empty = "."
+
+#label-song = %title%
+#label-song-maxlen = 25
+#label-song-ellipsis = true
+##label-song = %{F${xrdb:color7:#222}%{F-} %title%%{F-}
+#label-song = %{F${xrdb:color7:#222} %{F-} %title%%{F-}
+
+####################################################
+#                       CMUS                       #
+####################################################
+
+[module/next-cmus]
+type = custom/script
+click-left = cmus-remote -n
+exec = sh $HOME/.config/polybar/scripts/next.sh
+label = %output%
+interval = 1
+
+[module/prev-cmus]
+type = custom/script
+click-left = cmus-remote -r
+exec = sh $HOME/.config/polybar/scripts/prev.sh
+label = %output%
+interval = 1
+
+[module/play-cmus]
+type = custom/script
+click-left = cmus-remote -u
+exec = sh $HOME/.config/polybar/scripts/play.sh
+label = %output%
+interval = 1
+
+[module/repeat-cmus]
+type = custom/script
+click-left = $HOME/.config/polybar/scripts/func_repeat.sh
+click-right = $HOME/.config/polybar/scripts/func_shuffle.sh
+exec = sh $HOME/.config/polybar/scripts/repeat.sh
+label = %output%
+interval = 1
+
+[module/minutes-cmus]
+type = custom/script
+#click-left = $HOME/.config/polybar/scripts/minutes-cmus.sh
+exec = sh $HOME/.config/polybar/scripts/minutes-cmus.sh
+label = %output%
+interval =
+
+#################################################################
+#                      ALGUNS MÓDULOS CRIADOS                   #
+#################################################################
+
+[module/search]
+type = custom/text
+content = " Search"
+content-foreground = ${colors.foreground}
+#content-underline = ${colors.foreground}
+click-left = exec librewolf "https://googlethatforyou.com/"
+
+[module/statusmusic]
+interval = 0.1
+type = custom/script
+exec = ~/.local/bin/statusmusic
+click-left = ~/.config/polybar/scripts/play.sh
+click-right = killall cmus && killall next.sh && killall prev.sh
+
+[module/dolar]
+type = custom/script
+exec = ~/.local/bin/dolar
+interval = 600
+
+[module/info-redshift-temp]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/redshift-info.sh
+click-left = $HOME/Scripts/redshift.sh
+interval = 1
+
+#[module/mic]
+#type = custom/ipc
+#initial = 1
+#hook-0 = echo "  "
+#hook-1 = echo "  "
+#click-left = $HOME/.config/polybar/scripts/mic.sh
+
+#[module/browser]
+#type = custom/text
+#content = "  "
+#content-foreground = ${colors.foreground}
+##content-underline = ${colors.foreground}
+#click-left = exec vimb_launch &
+#click-left = exec firefox 
+#click-left = exec $HOME/.palemoon/./palemoon
+
+#[module/telegram]
+#type = custom/text
+#content = "  "
+#content-foreground = ${colors.foreground}
+##content-underline = ${colors.foreground}
+#click-left = exec $HOME/.local/bin/kotatogram &
+#click-right = exec $HOME/.local/bin/telegram &
+
+#[module/terminal]
+#type = custom/text
+#content = "  "
+##content-foreground = ${colors.foreground}
+##content-underline = ${colors.foreground}
+#click-left = exec kitty &
+#click-left = exec $HOME/Scripts/kittyDraw.sh &
+
+#[module/polywins]
+#type = custom/script
+#exec = ~/.config/polybar/scripts/polywins.sh 2>/dev/null
+#label-padding = 1
+#interval = 0.1
+#tail = true
+
+[module/up]
+type = custom/script
+interval = 600
+exec = ~/.config/polybar/scripts/updates-arch.sh
+click-left = kitty -e ~/.config/polybar/scripts/updates-archlinux.sh &
+
+[module/pacman]
+type = custom/script
+interval = 600
+exec = pacman -Qq | wc -l
+#label = "%{F${colors.foreground  %{F-} %output:0:37:...%"
+label = "%{F${xrdb:color7:#222  %{F-} %output:0:37:...%"
+#format-underline = #d79921
+#format-background = #d79921
+
+#[module/news-archlinux]
+#type = custom/script
+#exec = ~/.config/polybar/scripts/news-archlinux.py
+#interval = 600
+#click-left = vimb_launch https://www.archlinux.org/ &
+#click-left = qutebrowser https://www.archlinux.org/ &
+
+[module/btc]
+type = custom/script
+interval = 600
+exec = $HOME/Scripts/btc.py
+label = "%{F#${colors.foreground  %{F-} %output:0:37:...%"
+#format-underline = ${colors.foreground}
+
+[module/scratchpad-indicator]
+type = custom/script
+interval = 0.1
+exec = python $HOME/.config/polybar/scripts/i3-scratchpad-indicator.py
+click-left = exec i3-msg scratchpad show 
+click-right = exec i3-msg move scratchpad 
+click-middle = exec python $HOME/.config/polybar/scripts/i3-scraptchad-list.py 
+#format-underline = ${colors.foreground}
+
+[module/clima]
+type = custom/script
+interval = 600
+exec = $HOME/.config/polybar/scripts/weather.sh
+#label = "%{F#${colors.foreground}%{F-} %output:0:37:...%"
+#label = "%{F#${colors.foreground}  %{F-} %output:0:37:...%"
+label = "%{F#${colors.foreground  %{F-} %output:0:37:...%"
+click-left = qutebrowser https://openweathermap.org/city/3387880
+#click-left = firefox https://openweathermap.org/city/3387880
+#click-right = vimb_launch https://openweathermap.org/city/3387880
+#format-underline = #d3869b
+#format-background = #d3869b
+
+[module/linux]
+type = custom/text
+content = "%{F${colors.foreground  %{F-}Arch Linux"
+#content-underline = ${colors.foreground}
+#click-left = rofi -show drun -theme ~/.config/rofi/drun.rasi &
+
+[module/calendar]
+type = custom/script
+interval = 1
+#exec = date "+%a, %d %b %Y"
+exec = date "+%a, %d %b"
+label = "%{F${colors.foreground  %{F-} %output:0:36:...%"
+#format-underline = #98971a
+#format-background = #98971a
+click-left = notify-send "$(cal)"
+
+[module/colorpicker]
+type = custom/text
+content = "  "
+content-foreground = ${colors.foreground}
+#content-underline = ${colors.foreground}
+click-left = exec $HOME/.config/polybar/scripts/colorpicker.sh
