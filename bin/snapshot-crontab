@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Franklin Souza
+# @FranklinTech
+
+# Script to run with crontab
+
+# Define the directory where you want to store the snapshots
+SNAPSHOT_DIR=/.snapshots
+
+# Set date format for snapshot name
+DATE=$(date +%Y-%m-%d_%H:%M:%S)
+SNAPSHOT="@snapshot-auto-$DATE"
+
+# Create a new snapshot of the Btrfs subvolume and update the grub config
+sudo btrfs subvolume snapshot / "$SNAPSHOT_DIR/$SNAPSHOT"
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+# Delete snapshots older than 7 days
+sudo btrfs subvolume delete $(sudo btrfs subvolume list $snapshot_dir | awk '$10 < "'$(date -d '7 days ago' +%s)'"{print $NF}')
