@@ -411,7 +411,7 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 ####################################################################
 
 # AutoLayout
-exec_always --no-startup-id i3-autolayout autolayout
+#exec_always --no-startup-id i3-autolayout autolayout
 
 # Pywal
 exec_always --no-startup-id ~/.cache/wal/colors.sh
