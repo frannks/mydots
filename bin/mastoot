@@ -1,0 +1,529 @@
+#!/usr/bin/env bash
+
+# Franklin Souza
+# @FranklinTech
+
+# checagem de pacote
+[ ! `command -v fzf` ] && echo "fzf não instalado, por favor faça a instalação!!!" && exit 1
+[ ! `command -v catimg` ] && echo "catimg não instalado, por favor faça a instalação!!!" && exit 1
+
+main(){
+   # Limpar tela
+   clear
+   # Menu
+   printf "
+████████╗ ██████╗  ██████╗ ████████╗
+╚══██╔══╝██╔═══██╗██╔═══██╗╚══██╔══╝
+   ██║   ██║   ██║██║   ██║   ██║   
+   ██║   ██║   ██║██║   ██║   ██║   
+   ██║   ╚██████╔╝╚██████╔╝   ██║   
+   ╚═╝    ╚═════╝  ╚═════╝    ╚═╝\n\nProjeto toot: https://github.com/ihabunek/toot\n\nEscolha uma das opções abaixo:\n\n\n[01] -> toot login (Browser)\n[02] -> toot logout\n[03] -> toot auth\n\n[04] -> toot whois\n[05] -> toot notifications\n[06] -> toot instance\n[07] -> toot search\n[08] -> toot timeline\n[09] -> toot bookmarks\n\n[10] -> toot post\n[11] -> toot upload\n\n[12] -> toot delete\n[13] -> toot favourite\n[14] -> toot unfavourite\n[15] -> toot bookmark\n[16] -> toot unbookmark\n\n[17] -> toot follow\n[18] -> toot unfollow\n[19] -> toot following\n[20] -> toot followers\n[21] -> toot mute\n[22] -> toot unmute\n[23] -> toot block\n[24] -> toot unblock\n\n[25] -> toot tags_followed\n[26] -> toot tags_follow\n[27] -> toot tags_unfollow\n\n[28] -> toot tui\n\n[29] -> toot reblog\n[30] -> toot unreblog\n[31] -> toot reblogged_by\n\n[32] -> toot pin\n---------------------------\n\n[33] -> Sair\n\n"
+read OPTION
+
+if [ $OPTION == '1' ] || [ $OPTION == '01' ] ; then
+   tootLogin
+
+elif [ $OPTION == '2' ] || [ $OPTION == '02' ] ; then
+   tootLogout
+
+elif [ $OPTION == '3' ] || [ $OPTION == '03' ] ; then
+   tootAuth
+
+elif [ $OPTION == '4' ] || [ $OPTION == '04' ] ; then
+   tootWhois
+
+elif [ $OPTION == '5' ] || [ $OPTION == '05' ] ; then
+   tootNotifications
+
+elif [ $OPTION == '6' ] || [ $OPTION == '06' ] ; then
+   tootInstances
+
+elif [ $OPTION == '7' ] || [ $OPTION == '07' ] ; then
+   tootSearch
+
+elif [ $OPTION == '8' ] || [ $OPTION == '08' ] ; then
+   tootTimeline
+
+elif [ $OPTION == '9' ] || [ $OPTION == '09' ] ; then
+   tootBookmarks
+
+elif [ $OPTION == '10' ] ; then
+   tootPost
+
+elif [ $OPTION == '11' ] ; then
+   tootUpload
+
+elif [ $OPTION == '12' ] ; then
+   tootDelete
+
+elif [ $OPTION == '13' ] ; then
+   tootFavourite
+
+elif [ $OPTION == '14' ] ; then
+   tootUnfavourite
+
+elif [ $OPTION == '15' ] ; then
+   tootBookmark
+
+elif [ $OPTION == '16' ] ; then
+   tootUnbookmark
+
+elif [ $OPTION == '17' ] ; then
+   tootFollow
+
+elif [ $OPTION == '18' ] ; then
+   tootUnfollow
+
+elif [ $OPTION == '19' ] ; then
+   tootFollowing
+
+elif [ $OPTION == '20' ] ; then
+   tootFollowers
+
+elif [ $OPTION == '21' ] ; then
+   tootMute
+
+elif [ $OPTION == '22' ] ; then
+   tooUnmute
+
+elif [ $OPTION == '23' ] ; then
+   tootBlock
+
+elif [ $OPTION == '24' ] ; then
+   tootUnblock
+
+elif [ $OPTION == '25' ] ; then
+   tootTagsFollowed
+
+elif [ $OPTION == '26' ] ; then
+   tootTagsFollow
+
+elif [ $OPTION == '27' ] ; then
+   tootTagsUnfollow
+
+elif [ $OPTION == '28' ] ; then
+   tootTui
+
+elif [ $OPTION == '29' ] ; then
+   tootReblog
+
+elif [ $OPTION == '30' ] ; then
+   tootUnreblog
+
+elif [ $OPTION == '31' ] ; then
+   tootRebloggedBy
+
+elif [ $OPTION == '32' ] ; then
+   tootPin
+
+elif [ $OPTION == '33' ] ; then
+   clear && exit
+
+
+else
+   read -p 'Opção invalida PRESSIONE ENTER PARA CONTINUAR...' && main
+fi
+}
+
+#funcions
+# tootlogin
+tootLogin(){
+   clear
+   toot login
+   main
+}
+
+# tootlogout
+tootLogout(){
+   clear
+   printf "Digite o user e a instância que deseja deslogar (Ex: fraank@social.linux.pizza):\n\n"
+   read LOGOUT
+   toot logout "$LOGOUT"
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# tooauth
+tootAuth(){
+   clear
+   toot auth
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# tootwhois
+tootWhois(){
+   clear
+   printf "Digite o user e a instância que deseja visualizar (Ex: @fraank@social.linux.pizza):\n\n"
+   read PROFILE
+   printf "\n" && toot whois "$PROFILE"
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# tootnotifications
+tootNotifications(){
+   clear
+   toot notifications
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# tootinstances
+tootInstances(){
+   clear
+   printf "Digite a instância para verificar as regras (Ex: social.linux.pizza):\n\n"
+   read INSTANCES
+   toot instance "$INSTANCES"
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# tootsearch
+tootSearch(){
+   clear
+   printf "Digite o user para pesquisar (Ex: @fraank@social.linux.pizza):\n\n"
+   read PROFILE_SEARCH
+   printf "\n" && toot search "$PROFILE_SEARCH"
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# toottimeline
+tootTimeline(){
+   clear
+   toot timeline
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# tootbookmarks
+tootBookmarks(){
+   clear
+   toot bookmarks
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# tootpost
+tootPost(){
+   clear
+   echo -e "Digite abaixo o que você deseja postar (use Shift+Enter para quebrar a linha). Digite 'fim' para finalizar:\n"
+
+   input=""
+   while IFS= read -r line; do
+      if [[ "$line" == "fim" ]]; then
+         break
+      fi
+
+      input+="$line"$'\n'
+      done
+
+   echo -e "\nTexto digitado:"
+   echo "$input"
+   printf "\n" && toot post "$input"
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# tootupload
+tootUpload(){
+   clear
+   printf "Escolha uma das opções abaixo:\n\n[1] - Postar media com legenda\n[2] - Postar media sem legenda\n[3] - Menu principal\n\n"
+   read CHOICE
+   if [ $CHOICE == '1' ] || [ $CHOICE == '01' ] ; then
+      clear
+      printf "Digite abaixo o local da media (Ex: /home/user/Pictures):\n\n"
+      read MEDIA_PATH
+      echo -e "\n\nDigite abaixo a sua legenda (use Shift+Enter para quebrar a linha). Digite 'fim' para finalizar:\n"
+      input1=""
+      while IFS= read -r line; do
+         if [[ "$line" == "fim" ]]; then
+            break
+         fi
+         input1+="$line"$'\n'
+         done
+
+
+      echo -e "\nTexto digitado:\n\n$input1"
+      printf "Agora escolha a sua media para postar\n\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...'
+      
+      mapfile -t array < <(find  "$MEDIA_PATH" -regextype posix-egrep -regex '.*\.(jpg|png)' | \
+         fzf --preview="if [[ {} =~ ('.jpg'|'.JPG'|'.jpeg'|'.png'|'.PNG')$ ]]; then catimg -r2 -w$COLUMNS {};elif [ -d {} ]; then ls --color=always --group-directories-first -H {}; else nl -pba -w1 -s' ' {};fi" --query="$1" --multi --select-1 --exit-0)
+      [[ -n "${array[@]}" ]] && toot post --media="${array[@]}" "$input1"
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+
+   elif [ $CHOICE == '2' ] || [ $CHOICE == '02' ] ; then
+      clear
+      printf "Digite abaixo o local da media (Ex: /home/user/Pictures):\n\n"
+      read MEDIA_PATH1
+
+      mapfile -t array < <(find  "$MEDIA_PATH1" -regextype posix-egrep -regex '.*\.(jpg|png)' | \
+         fzf --preview="if [[ {} =~ ('.jpg'|'.JPG'|'.jpeg'|'.png'|'.PNG')$ ]]; then catimg -r2 -w$COLUMNS {};elif [ -d {} ]; then ls --color=always --group-directories-first -H {}; else nl -pba -w1 -s' ' {};fi" --query="$1" --multi --select-1 --exit-0)
+      [[ -n "${array[@]}" ]] && toot post --media="${array[@]}"
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+
+   elif [ $CHOICE == '3' ] || [ $CHOICE == '03' ] ; then
+      main
+      
+   else
+      read -p 'Opção inexistente PRESSIONE ENTER PARA CONTINUAR...' && tootUpload
+   fi
+}
+
+# tootdelete
+tootDelete(){
+   clear
+   read -p 'Pegue o id do post no toot timeline PRESSIONE ENTER PARA CONTINUAR...'
+   printf "\nDeseja entrar no timeline[y/n]?\n\n"
+   read TIMELINE_DELETE
+   if [ $TIMELINE_DELETE == 'y' ] || [ $TIMELINE_DELETE == 'Y' ] || [ $TIMELINE_DELETE == 'yes' ] || [ $TIMELINE_DELETE == 'YES' ] || [ $TIMELINE_DELETE == 'Yes' ] ; then
+      tootTimeline
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   else
+      clear && printf "Cole abaixo o ID da postagem que deseja deletar:\n\n"
+      read DELETE_POST
+      printf "\n" && toot delete "$DELETE_POST"
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   fi
+}
+
+# tootfavourite
+tootFavourite(){
+   clear
+   read -p 'Pegue o id do post no toot timeline PRESSIONE ENTER PARA CONTINUAR...'
+   printf "\nDeseja entrar no timeline[y/n]?\n\n"
+   read FAVOURITE_ID
+   if [ $FAVOURITE_ID == 'y' ] || [ $FAVOURITE_ID == 'Y' ] || [ $FAVOURITE_ID == 'yes' ] || [ $FAVOURITE_ID == 'YES' ] || [ $FAVOURITE_ID == 'Yes' ] ; then
+      tootTimeline
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   else
+      clear && printf "Cole abaixo o ID da postagem que deseja da favourite:\n\n"
+      read FAVOURITE
+      printf "\n" && toot favourite "$FAVOURITE"
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   fi
+}
+
+# tootunfavourite
+tootUnfavourite(){
+    clear
+   read -p 'Pegue o id do post no toot timeline PRESSIONE ENTER PARA CONTINUAR...'
+   printf "\nDeseja entrar no timeline[y/n]?\n\n"
+   read UNFAVOURITE_ID
+   if [ $UNFAVOURITE_ID == 'y' ] || [ $UNFAVOURITE_ID == 'Y' ] || [ $UNFAVOURITE_ID == 'yes' ] || [ $UNFAVOURITE_ID == 'YES' ] || [ $UNFAVOURITE_ID == 'Yes' ] ; then
+      tootTimeline
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   else
+      clear && printf "Cole abaixo o ID da postagem que deseja da unfavourite:\n\n"
+      read UNFAVOURITE
+      printf "\n" && toot unfavourite "$UNFAVOURITE"
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   fi
+}
+
+# tootbookmark
+tootBookmark(){
+   clear
+   read -p 'Pegue o id do post no toot timeline PRESSIONE ENTER PARA CONTINUAR...'
+   printf "\nDeseja entrar no timeline[y/n]?\n\n"
+   read BOOKMARK_ID
+   if [ $BOOKMARK_ID == 'y' ] || [ $BOOKMARK_ID == 'Y' ] || [ $BOOKMARK_ID == 'yes' ] || [ $BOOKMARK_ID == 'YES' ] || [ $BOOKMARK_ID == 'Yes' ] ; then
+      tootTimeline
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   else
+      clear && printf "Cole abaixo o ID da postagem que deseja da salvar:\n\n"
+      read BOOKMARKED
+      printf "\n" && toot bookmark "$BOOKMARKED"
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   fi
+}
+
+# tootunbookmark
+tootUnbookmark(){
+    clear
+   read -p 'Pegue o id do post no toot timeline PRESSIONE ENTER PARA CONTINUAR...'
+   printf "\nDeseja entrar no timeline[y/n]?\n\n"
+   read UNBOOKMARK_ID
+   if [ $UNBOOKMARK_ID == 'y' ] || [ $UNBOOKMARK_ID == 'Y' ] || [ $UNBOOKMARK_ID == 'yes' ] || [ $UNBOOKMARK_ID == 'YES' ] || [ $UNBOOKMARK_ID == 'Yes' ] ; then
+      tootTimeline
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   else
+      clear && printf "Cole abaixo o ID da postagem que deseja remover dos itens salvos:\n\n"
+      read UNBOOKMARKED
+      printf "\n" && toot unbookmark "$UNBOOKMARKED"
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   fi
+}
+
+# tootfollow
+tootFollow(){
+   clear
+   printf "Digite abaixo o perfil que você deseja seguir (Ex: fraank@social.linux.pizza):\n\n"
+   read FOLLOW_PROFILE
+   printf "\n" && toot follow "$FOLLOW_PROFILE"
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# tootunfollow
+tootUnfollow(){
+   clear
+   printf "Digite abaixo o perfil que você deseja parar de seguir (Ex: fraank@social.linux.pizza):\n\n"
+   read UNFOLLOW_PROFILE
+   printf "\n" && toot unfollow "$UNFOLLOW_PROFILE"
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# tootfollowing
+tootFollowing(){
+   clear
+   printf "Digite abaixo o perfil que você deseja ver quem ele(a) está seguindo (Ex: fraank@social.linux.pizza):\n\n"
+   read FOLLOWING_PROFILE
+   printf "\n" && toot following "$FOLLOWING_PROFILE"
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# tootfollowers
+tootFollowers(){
+   clear
+   printf "Digite abaixo o perfil que você deseja ver quem os seguidores (Ex: fraank@social.linux.pizza):\n\n"
+   read FOLLOWERS_PROFILE
+   printf "\n" && toot followers "$FOLLOWERS_PROFILE"
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# tootmute
+tootMute(){
+   clear
+   printf "Digite abaixo o perfil que você deseja mutar (Ex: fraank@social.linux.pizza):\n\n"
+   read MUTE
+   printf "\n" && toot mute "$MUTE"
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# tootunmute
+tooUnmute(){
+   clear
+   printf "Digite abaixo o perfil que você deseja desmutar (Ex: fraank@social.linux.pizza):\n\n"
+   read UNMUTE
+   printf "\n" && toot unmute "$UNMUTE"
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# tootblock
+tootBlock(){
+   clear
+   printf "Digite abaixo o perfil que você deseja bloquear (Ex: fraank@social.linux.pizza):\n\n"
+   read BLOCK
+   printf "\n" && toot block "$BLOCK"
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# tootunblock
+tootUnblock(){
+   clear
+   printf "Digite abaixo o perfil que você deseja desbloquear (Ex: fraank@social.linux.pizza):\n\n"
+   read UNBLOCK
+   printf "\n" && toot unblock "$UNBLOCK"
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# toottagsfollowed
+tootTagsFollowed(){
+   clear
+   read -p 'Abaixo mostra as tags que você está seguindo:'
+   printf "\n" && toot tags_followed
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# toottagsfollow
+tootTagsFollow(){
+   clear
+   printf "Digite abaixo a tag que você deseja seguir (Ex: Brazil #Brazil):\n\n"
+   read TAG_FOLLOW
+   printf "\n" && toot tags_follow "$TAG_FOLLOW"
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# toottagsunfollow
+tootTagsUnfollow(){
+   clear
+   printf "Digite abaixo a tag que você deseja parar de seguir (Ex: Brazil #Brazil):\n\n"
+   read TAG_UNFOLLOW
+   printf "\n" && toot tags_unfollow "$TAG_UNFOLLOW"
+   printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+}
+
+# toottui
+tootTui(){
+   clear
+   printf "Você deseja entrar no toot tui [y/n]?\n\n"
+   read TOOT_TUI
+   if [ $TOOT_TUI == 'y' ] || [ $TOOT_TUI == 'Y' ] || [ $TOOT_TUI == 'yes' ] || [ $TOOT_TUI == 'YES' ] || [ $TOOT_TUI == 'Yes' ] ; then
+      clear && toot tui
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+
+   else
+      clear && printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   fi
+}
+
+# tootreblog
+tootReblog(){
+   clear
+   read -p 'Pegue o id do post no toot timeline PRESSIONE ENTER PARA CONTINUAR...'
+   printf "\nDeseja entrar no timeline[y/n]?\n\n"
+   read REBLOG
+   if [ $REBLOG == 'y' ] || [ $REBLOG == 'Y' ] || [ $REBLOG == 'yes' ] || [ $REBLOG== 'YES' ] || [ $REBLOG == 'Yes' ] ; then
+      tootTimeline
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   else
+      clear && printf "Cole abaixo o ID da postagem que você deseja repostar:\n\n"
+      read REBLOG1
+      printf "\n" && toot reblog "$REBLOG1"
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   fi
+}
+
+# tootunreblog
+tootUnreblog(){
+   clear
+   read -p 'Pegue o id do post no toot timeline PRESSIONE ENTER PARA CONTINUAR...'
+   printf "\nDeseja entrar no timeline[y/n]?\n\n"
+   read UNREBLOG
+   if [ $UNREBLOG == 'y' ] || [ $UNREBLOG == 'Y' ] || [ $UNREBLOG == 'yes' ] || [ $UNREBLOG == 'YES' ] || [ $UNREBLOG == 'Yes' ] ; then
+      tootTimeline
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   else
+      clear && printf "Cole abaixo o ID da postagem que você deseja remover o reposte:\n\n"
+      read UNREBLOG1
+      printf "\n" && toot reblog "$UNREBLOG1"
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   fi
+}
+
+# tootreblogged_by
+tootRebloggedBy(){
+   clear
+   read -p 'Pegue o id do post no toot timeline PRESSIONE ENTER PARA CONTINUAR...'
+   printf "\nDeseja entrar no timeline[y/n]?\n\n"
+   read REBLOGGEDBY
+   if [ $REBLOGGEDBY == 'y' ] || [ $REBLOGGEDBY == 'Y' ] || [ $REBLOGGEDBY == 'yes' ] || [ $REBLOGGEDBY == 'YES' ] || [ $REBLOGGEDBY == 'Yes' ] ; then
+      tootTimeline
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   else
+      clear && printf "Cole abaixo o ID da postagem que você deseja repostar com o perfil:\n\n"
+      read REBLOGGEDBY1
+      printf "\n" && toot reblog "$REBLOGGEDBY1"
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   fi
+}
+
+# tootpin
+tootPin(){
+   clear
+   read -p 'Pegue o id do post no toot timeline PRESSIONE ENTER PARA CONTINUAR...'
+   printf "\nDeseja entrar no timeline[y/n]?\n\n"
+   read PIN
+   if [ $PIN == 'y' ] || [ $PIN == 'Y' ] || [ $PIN == 'yes' ] || [ $PIN == 'YES' ] || [ $PIN == 'Yes' ] ; then
+      tootTimeline
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   else
+      clear && printf "Cole abaixo o ID da postagem que você deseja repostar com o perfil:\n\n"
+      read PIN1
+      printf "\n" && toot pin "$PIN1"
+      printf "\n" && read -p 'PRESSIONE ENTER PARA CONTINUAR...' && main
+   fi
+}
+main
