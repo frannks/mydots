@@ -535,21 +535,21 @@ margin-bottom = 5
 [module/next-cmus]
 type = custom/script
 click-left = cmus-remote -n
-exec = sh $HOME/.config/polybar/scripts/next.sh
+exec = sh $HOME/.config/polybar/scripts/cmus-next.sh
 label = %output%
 interval = 1
 
 [module/prev-cmus]
 type = custom/script
 click-left = cmus-remote -r
-exec = sh $HOME/.config/polybar/scripts/prev.sh
+exec = sh $HOME/.config/polybar/scripts/cmus-prev.sh
 label = %output%
 interval = 1
 
 [module/play-cmus]
 type = custom/script
 click-left = cmus-remote -u
-exec = sh $HOME/.config/polybar/scripts/play.sh
+exec = sh $HOME/.config/polybar/scripts/cmus-play.sh
 label = %output%
 interval = 1
 
@@ -557,7 +557,7 @@ interval = 1
 type = custom/script
 click-left = $HOME/.config/polybar/scripts/func_repeat.sh
 click-right = $HOME/.config/polybar/scripts/func_shuffle.sh
-exec = sh $HOME/.config/polybar/scripts/repeat.sh
+exec = sh $HOME/.config/polybar/scripts/cmus-repeat.sh
 label = %output%
 interval = 1
 
