@@ -20,7 +20,7 @@ ds=󰠄
 distro="$(uname -o | awk -F '"' '/PRETTY_NAME/ { print $2 }' /etc/os-release)"
 
 h=󰕮
-wmname="$(tail -n 1 .xinitrc | awk '{print substr($0, index($0, $2))}')"
+wmname="$(tail -n 1 $HOME/.xinitrc | awk '{print substr($0, index($0, $2))}')"
 
 k=󰻀
 kernel="$(uname -r | cut -d '-' -f1)"
