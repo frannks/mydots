@@ -334,7 +334,7 @@ imagesDel(){
     podman run -it "$IMAGERUN" && main
 
   elif [ $IMAGES_DEL == '4' ] || [ $IMAGES_DEL == '04' ] ; then
-    clear && podman ps -a && printf "\n\n" && podman images
+    clear && xhost + && podman ps -a && printf "\n\n" && podman images
     printf "\n\nDigite abaixo o nome da imagem para subir a GUI:\n\n"
     read GUI_IMAGE
     clear && podman run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix "$GUI_IMAGE" && main
