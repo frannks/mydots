@@ -316,7 +316,7 @@ dockerFILE(){
 }
 
 imagesDel(){
-  clear && printf "Escolha uma das opções:\n\n[1] - Apagar todas as imagens\n[2] - Remover apenas uma imagem\n[3] - Executar uma imagem\n[4] - Voltar\n\n"
+  clear && printf "Escolha uma das opções:\n\n[1] - Apagar todas as imagens\n[2] - Remover apenas uma imagem\n[3] - Executar uma imagem\n[4] - Subir imagem GUI\n[5] - Voltar\n\n"
   read IMAGES_DEL
   if [ $IMAGES_DEL == '1' ] || [ $IMAGES_DEL '01' ] ; then
     clear
@@ -334,7 +334,13 @@ imagesDel(){
     podman run -it "$IMAGERUN" && main
 
   elif [ $IMAGES_DEL == '4' ] || [ $IMAGES_DEL == '04' ] ; then
-    clear && main
+    clear && podman ps -a && printf "\n\n" && podman images
+    printf "\n\nDigite abaixo o nome da imagem para subir a GUI:\n\n"
+    read GUI_IMAGE
+    clear && podman run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix "$GUI_IMAGE" && main
+  
+  elif [ $IMAGES_DEL == '5' ] || [ $IMAGES_DEL == '05' ] ; then
+    main
   else
     clear && read -p 'Opção inexistente, por favor tente novamente...' && imagesDel
   fi
