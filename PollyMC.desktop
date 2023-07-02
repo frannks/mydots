@@ -3,5 +3,5 @@ Name=PollyMC Linux
 Type=Application
 Comment=Play Minecraft game
 Terminal=false
-Exec=/home/frank/Franks/Games/Minecraft/PollyMC-Linux-6.3-x86_64.AppImage
+Exec=/home/frank/Franks/Games/Minecraft/PollyMC-Linux-7.1-x86_64.AppImage
 Categories=Development;
