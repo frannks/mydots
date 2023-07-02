@@ -21,5 +21,5 @@ fi
 cd $HOME/Franks/Games/Minecraft
 wget -c "https://github.com/fn2006/PollyMC/releases/download/6.3/PollyMC-Linux-6.3-x86_64.AppImage"
 chmod +x PollyMC-Linux-6.3-x86_64.AppImage
-cd $HOME/.local/share/applications && wget -c "https://git.envs.net/fraanks/dotfiles/raw/branch/main/PollyMC.desktop"
+cd $HOME/.local/share/applications && wget -c "https://github.com/frannks/mydots/raw/main/PollyMC.desktop"
 cd $HOME && clear && exit 0
