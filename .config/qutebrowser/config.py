@@ -263,7 +263,7 @@ config.bind('<Ctrl-Shift-o>', 'spawn --verbose --detach /home/frank/Scripts/fill
 config.bind('<Ctrl-Shift-d>', 'hint links spawn --verbose --detach mpv {hint-url} --input-ipc-server=/tmp/mpvsocket')
 config.bind('<Ctrl-m>', 'open https://social.linux.pizza/home')
 config.bind('<Ctrl-r>', 'open https://app.revolt.chat/')
-config.bind('<Ctrl-g>', 'open https://git.envs.net/fraanks')
+config.bind('<Ctrl-g>', 'open https://github.com/frannks')
 config.bind('cp', 'config-cycle colors.webpage.darkmode.enabled ;; restart')
 # config.bind("'", 'enter-mode jump_mark')
 config.bind('+', 'zoom-in')
