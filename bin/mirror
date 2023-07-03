@@ -5,7 +5,7 @@
 [ ! `command -v wget` ] && echo "wget não instalado, por favor faça a instalação" && exit 1
 
 # Mirrorlist download file
-wget -c "https://codeberg.org/ffraanks/dotfiles/raw/branch/master/home/.mirrors-list" && clear
+wget -c "https://github.com/frannks/mydots/raw/main/.mirrors-list" && clear
 
 while true ; do
   mkdir $HOME/.mirror-backup
