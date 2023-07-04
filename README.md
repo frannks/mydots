@@ -14,7 +14,7 @@
 | Terminal Emulator   | [Kitty](https://github.com/kovidgoyal/kitty)                                                                                 |
 | Shell               | [ZSH](https://wiki.archlinux.org/index.php/Zsh)                                                                                                         
 | Text editor     | [NeoVim](https://github.com/neovim/neovim)                                                                                  |
-| Monitor configuration    | [ARandR](https://christian.amsuess.com/tools/arandr/)                                                                               |
+| Monitor configuration    | [xrandr](https://www.x.org/releases/X11R7.6/doc/man/man1/xrandr.1.xhtml)                                                                               |
 | Lockscreen    | [i3Lock](https://github.com/ffraanks/dotfiles/blob/master/bin/lockscreen)                                                                                                  
 | Notification Daemon   | [Dunst](https://github.com/dunst-project/dunst)                                                                                    
 | Development   | [NeoVim](https://github.com/neovim/neovim)
