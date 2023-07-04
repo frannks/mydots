@@ -288,7 +288,7 @@ for_window [class="(Stremio)"]move to workspace $ws7
 for_window [class="(qBittorrent)"] move to workspace $ws8
 
 # Steam (Loja de games) ws=10
-for_window [class="(Steam)"] move to workspace $ws10 floating enable, move position center
+for_window [class="(steam)"] move to workspace $ws10 floating enable, move position center
 
 # Lutris ws=10
 for_window [class="(Lutris)"] move to workspace $ws10

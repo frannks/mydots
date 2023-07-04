@@ -640,7 +640,7 @@ interval = 1
 type = custom/script
 interval = 600
 exec = ~/.config/polybar/scripts/updates-arch.sh
-click-left = kitty -e ~/.config/polybar/scripts/updates-archlinux.sh &
+#click-left = kitty -e ~/.config/polybar/scripts/updates-archlinux.sh &
 
 [module/pacman]
 type = custom/script
