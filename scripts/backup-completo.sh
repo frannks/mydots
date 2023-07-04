@@ -17,7 +17,7 @@ clear && printf "
 ██████╔╝██║  ██║╚██████╗██║  ██╗╚██████╔╝██║     
 ╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝
 \n\n" && lsblk
-printf "\n\n" && read -p "Qual é o seu dispositivo de backup? " device_backup
+printf "\n\nPARA CANCELAR PRESSIONE Ctrl+C\n\n" && read -p "Qual é o seu dispositivo de backup? " device_backup
 # Diretorio(s) de backup
 clear && read -p "Digite o caminho absoluto do diretório para fazer o backup: " backup_path
 
