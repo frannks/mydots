@@ -128,6 +128,10 @@ pkginf1() {
    clear && pacman -Q $@
 }
 
+mon(){
+	clear && xrandr --output VGA-0 --mode "$@"
+}
+
 device() {
 	adb tcpip 5555 && adb connect 192.168.0.101:5555
 }
