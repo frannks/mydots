@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-clear
-streamlink -p mpv "$@" best
+clear && read -p 'Cole o link do canal da Twitch.tv: ' channel_url
+clear && streamlink -p mpv "$channel_url" best --config ~/.config/streamlink/config.twitch
