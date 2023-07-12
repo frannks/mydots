@@ -4,7 +4,7 @@ deluser() {
                 echo""
                 echo "Usuário(s) existente(s):"
                 echo "▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁"
-                        egrep [1][0-9]{3} /etc/passwd | cut -d: -f1
+                        grep -E [1][0-9]{3} /etc/passwd | cut -d: -f1
                 echo "▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁"
 
         # Nome:
