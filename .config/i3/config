@@ -29,15 +29,20 @@ set $win Mod4
 
 #Iniciar compositor com sombreamento - xcompmgr
 #bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 -I 0.20 -O 0.20 &
+#exec --no-startup-id xcompmgr -cCfF -r5 -o 0.85 -l-15 -t-15 -D8 -I 0.20 -O 0.20 &
 
 #Iniciar compositor Sem sombreamento - xcompmgr
 #bindsym $win+F5 exec --no-startup-id xcompmgr -cCfF -t-9 -l-11 -r5 -o 0.18 -l-6 -t-4 -D8 -I 0.020 -O 0.020 &
+#exec --no-startup-id xcompmgr -cCfF -t-9 -l-11 -r5 -o 0.18 -l-6 -t-4 -D8 -I 0.020 -O 0.020 &
+
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 # Matar compositor - picom
 bindsym $win+F4 exec --no-startup-id killall picom
 
 #Iniciar compositor com sombreamento - picom
 bindsym $win+F5 exec --no-startup-id picom --config ~/.config/picom.conf
+exec --no-startup-id picom --config ~/.config/picom.conf
 
 ####################################################################
 #                           FONTS                                  #
@@ -135,9 +140,6 @@ bindsym $win+x exec --no-startup-id lockscreen
 bindsym $win+F8 exec --no-startup-id simplescreenrecorder --start-hidden # -> Iniciar o ssr
 bindsym $win+Shift+s exec --no-startup-id killall simplescreenrecorder # -> Matar o ssr
 
-# Printar Tela (Delay 5seg)
-bindsym $win+z exec --no-startup-id sleep 5 && shot sr
-
 # Iniciar terminal
 #bindsym $win+Return exec --no-startup-id i3-sensible-terminal
 bindsym $win+Return exec --no-startup-id kitty
@@ -195,6 +197,9 @@ bindsym $win+d exec --no-startup-id $HOME/Scripts/./rofiall
 
 # Screenshot
 bindsym Print exec --no-startup-id screenshot
+
+# Printar Tela (Delay 5seg)
+bindsym $win+z exec --no-startup-id sleep 5 && shot sr
 
 ####################################################################
 #                              WORKSPACE                           #
