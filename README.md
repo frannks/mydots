@@ -7,7 +7,7 @@
 | Program Launcher | [Rofi](https://github.com/davatorium/rofi)                                                                                         |           
 | Status Bar     | [Polybar](https://github.com/polybar/polybar)                                                                                         |                                          |                                                                   
 | Vídeo Player        | [MPV](https://mpv.io/)                                                          |
-| Music Player | [CMUS](https://github.com/cmus/cmus)                                                     |
+| Music Player | [CMUS](https://cmus.github.io/)                                                     |
 | Image viewer | [sxiv](https://github.com/xyb3rt/sxiv)                                                                                                                                                                                             
 | Print Screen     | [shotgun](https://github.com/frannks/mydots/blob/main/bin/screenshot)                                                                               |
 | Screen Recorder    | [Simple Screen Recorder](https://www.maartenbaert.be/simplescreenrecorder/)                                                                                                    
