@@ -22,15 +22,15 @@
 
 # i3 Gaps
 
-<img src="i3Car.png">
+<img src="i3-pacman.png">
 
 # Rofi
 
-<img src="i3Car-Rofi.png">
+<img src="rofi-pacman.png">
 
 # i3-Lock
 
-<img src="i3Car-Lock.png">
+<img src="lock-pacman.png">
 
 # Interesses
 
