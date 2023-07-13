@@ -6,7 +6,7 @@
 # Variáveis
 # Solicita o nome do usuário
 read -p "Digite seu nome de usuário do GitHub: " username
-printf "\n\n" && read -p "Digita o nome do repositorio: " repository
+printf "\n" && read -p "Digita o nome do repositorio: " repository
 
 # Token de acesso pessoal
 token="SEU_TOKEN_AQUI"
