@@ -62,6 +62,11 @@ mkv(){
 	done
 }
 
+# Streamlink
+tw(){
+	clear && streamlink -p mpv "$@" best
+}
+
 # entering calculator mode
 bindkey -s '^a' 'bc -l\n'
 

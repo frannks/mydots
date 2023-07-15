@@ -55,6 +55,3 @@ HYPHEN_INSENSITIVE="true"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
-# Init
-#printf "Bem vindo(a) ao zsh!!!\n"

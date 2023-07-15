@@ -98,14 +98,13 @@ alias aid="stat -c %w /"
 alias req="pip freeze > requirements.txt"
 alias pu="pip freeze | xargs pip uninstall -y"
 alias podm='~/Scripts/pod.sh'
-alias ght='~/Scripts/token-gh.sh'
 alias grep='grep --color=auto'
 alias bkpc='sudo ~/Scripts/backup-completo.sh'
 alias sv='sudo minidlnad -R -d'
 alias chat='~/Scripts/chatgpt.sh'
-alias chaotic='sudo ~/Scripts/chaotic.sh'
 alias cl='paclist chaotic-aur'
 alias lfs='dysk'
 alias g='~/Scripts/git.sh'
 alias bt='journalctl -xb | less'
 alias gh="$HOME/Scripts/gh.sh"
+alias neofetch="fastfetch"
