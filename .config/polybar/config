@@ -88,7 +88,7 @@ separator = |
 
 modules-left = statusmusic prev-cmus play-cmus next-cmus repeat-cmus
 modules-center = clima
-modules-right = pulse info-redshift-temp pacman calendar date powermenu
+modules-right = pulse info-redshift-temp calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
