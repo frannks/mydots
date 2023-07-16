@@ -264,6 +264,7 @@ config.bind('<Ctrl-Shift-d>', 'hint links spawn --verbose --detach mpv {hint-url
 config.bind('<Ctrl-m>', 'open https://social.linux.pizza/home')
 config.bind('<Ctrl-r>', 'open https://app.revolt.chat/')
 config.bind('<Ctrl-g>', 'open https://github.com/frannks')
+config.bind('<Ctrl-i>', 'open https://invidious.slackjeff.com.br/feed/popular')
 config.bind('cp', 'config-cycle colors.webpage.darkmode.enabled ;; restart')
 # config.bind("'", 'enter-mode jump_mark')
 config.bind('+', 'zoom-in')
