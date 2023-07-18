@@ -14,7 +14,7 @@
 ####################################################################
 
 # Remove title bar
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 
 set $win Mod4
 #set $alt Mod1
@@ -42,7 +42,7 @@ bindsym $win+F4 exec --no-startup-id killall picom
 
 #Iniciar compositor com sombreamento - picom
 bindsym $win+F5 exec --no-startup-id picom --config ~/.config/picom.conf
-exec --no-startup-id picom --config ~/.config/picom.conf
+#exec --no-startup-id picom --config ~/.config/picom.conf
 
 ####################################################################
 #                           FONTS                                  #
@@ -368,7 +368,7 @@ for_window [class="kitty" title="castnow"] move window to scratchpad
 #                           G A P S                                #
 ####################################################################
 
-gaps inner 10
+gaps inner 6
 gaps outer 0
 #border_radius 10
 #smart_gaps on
