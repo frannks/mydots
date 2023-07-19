@@ -106,3 +106,4 @@ alias bt='journalctl -xb | less'
 alias gh="$HOME/Scripts/gh.sh"
 alias neofetch="fastfetch"
 alias cel='$HOME/Scripts/cel-mount.sh'
+alias cel1='$HOME/Scripts/scrcpy-cli.sh'
