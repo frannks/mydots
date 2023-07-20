@@ -109,3 +109,4 @@ alias neofetch="fastfetch"
 alias cel='$HOME/Scripts/cel-mount.sh'
 alias cel1='$HOME/Scripts/scrcpy-cli.sh'
 alias yt='ytfzf --pages=30 -t "$@"'
+alias lsk='lsblk'
