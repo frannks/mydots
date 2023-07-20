@@ -13,7 +13,7 @@ fi
 # Mirrorlist download file
 FILE="$HOME/.mirrors-list"
 if [ ! -d "$FILE" ] ; then
-  cd $HOME && wget -c "https://github.com/frannks/mydots/raw/main/.mirrors-list" && clear
+  wget -c "https://github.com/frannks/mydots/raw/main/.mirrors-list" && clear
   sudo cp "$HOME/.mirrors-list /root"
 else
   sudo cp "$HOME/.mirrors-list /root"
@@ -42,7 +42,7 @@ while true ; do
     fzf --query="$1" --multi --select-1 --exit-0)
     [[ -n "${array2[@]}" ]]
 
-    clear && sudo reflector --country "${array1[@]}" --country "${array2[@]}" --number 10 --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+    clear && sudo reflector --country "${array1[@]}" --country "${array2[@]}" --number 20 --age 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
     sudo pacman -Syy && continue
    
   elif [ $ESCOLHA == '3' ] || [ $ESCOLHA == '03' ] ; then
