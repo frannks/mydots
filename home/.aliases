@@ -4,6 +4,7 @@ alias asp="arch_snapshot"
 alias add='sudo snap-pac'
 alias up='sudo arch_update_snapshot '
 alias pkg='pacman -Ss'
+alias pkg1='pacseek'
 alias del='sudo pacman -Rns'
 alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
 alias vk='VK_INSTANCE_LAYERS=VK_LAYER_MESA_overlay vkcube'
