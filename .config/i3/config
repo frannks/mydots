@@ -211,10 +211,10 @@ set $ws2 " 2:  "
 set $ws3 " 3:  "
 set $ws4 " 4: 金"
 set $ws5 " 5:  "
-set $ws6 " 6:  "
-set $ws7 " 7:  "
-set $ws8 " 8:  "
-set $ws9 " 9:  "
+set $ws6 " 6:  "
+set $ws7 " 7:  "
+set $ws8 " 8:  "
+set $ws9 " 9:  "
 set $ws10 " 10:  "
 
 # Sem icones
@@ -261,6 +261,7 @@ bindsym $win+Shift+0 move container to workspace number $ws10
 assign [class="(firefox)"] $ws1
 assign [class="(LibreWolf)"] $ws1
 assign [class="(qutebrowser)"] $ws1
+for_window [class="(Tor Browser)"] move to workspace $ws1
 
 # Kitty (Terminal) ws=2
 for_window [class="(kitty)"] move to workspace $ws2
@@ -280,26 +281,11 @@ for_window [class="(Gimp)"] move to workspace $ws5
 # Inkscape ws=5
 for_window [class="(Inkscape)"] move to workspace $ws5
 
-# Mixxx ws=6
-for_window [class="(Mixxx)"] move to workspace $ws6
-
-# Tor Browser ws=7
-for_window [class="(Tor Browser)"] move to workspace $ws7
-
-# Freetube ws=7
-for_window [class="(Stremio)"]move to workspace $ws7
-
-# qBittorrent ws=8
-for_window [class="(qBittorrent)"] move to workspace $ws8
-
-# Steam (Loja de games) ws=10
+# Steam ws=10
 for_window [class="(steam)"] move to workspace $ws10 floating enable, move position center
 
 # Lutris ws=10
 for_window [class="(Lutris)"] move to workspace $ws10
-
-# PCSX2 ws=10
-for_window [instance="PCSX2"] move to workspace $ws10
 
 # PPSSPP ws=10
 for_window [instance="PPSSPPSDL"] move to workspace $ws10
@@ -310,9 +296,6 @@ for_window [class="(heroic)"] move to workspace $ws10
 ####################################################################
 #                           G A M E S                              #
 ####################################################################
-
-# Hellstuck
-for_window [class="(Hellstuck Rage with your friend)"] move to workspace $ws10
 
 # Minecraft Launcher
 for_window [class="(PollyMC)"] move to workspace $ws10
@@ -422,7 +405,7 @@ exec_always --no-startup-id i3-autolayout autolayout
 exec_always --no-startup-id ~/.cache/wal/colors.sh
 
 # Polybar
-exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
+#exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 
 # Wallpapers
 exec --no-startup-id wal -R && $HOME/.config/dunst/launchdunst.sh
