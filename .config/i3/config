@@ -281,6 +281,10 @@ for_window [class="(Gimp)"] move to workspace $ws5
 # Inkscape ws=5
 for_window [class="(Inkscape)"] move to workspace $ws5
 
+####################################################################
+#                           G A M E S                              #
+####################################################################
+
 # Steam ws=10
 for_window [class="(steam)"] move to workspace $ws10 floating enable, move position center
 
@@ -292,10 +296,6 @@ for_window [instance="PPSSPPSDL"] move to workspace $ws10
 
 # Heroic Games Launcher ws=10
 for_window [class="(heroic)"] move to workspace $ws10
-
-####################################################################
-#                           G A M E S                              #
-####################################################################
 
 # Minecraft Launcher
 for_window [class="(PollyMC)"] move to workspace $ws10
