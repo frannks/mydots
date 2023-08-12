@@ -300,6 +300,9 @@ for_window [class="(heroic)"] move to workspace $ws10
 # Minecraft Launcher
 for_window [class="(PollyMC)"] move to workspace $ws10
 
+# CS 1.6
+for_window [class="(hl_linux)"] move to workspace $ws10
+
 ####################################################################
 #                           R E G R A S                            #
 ####################################################################
@@ -351,7 +354,7 @@ for_window [class="kitty" title="castnow"] move window to scratchpad
 #                           G A P S                                #
 ####################################################################
 
-gaps inner 10
+gaps inner 4
 gaps outer 0
 #border_radius 10
 #smart_gaps on
