@@ -10,7 +10,7 @@ truncation_length = 40
 truncation_symbol = ""
 read_only = "  "
 read_only_style = "red"
-home_symbol = "/home"
+home_symbol = "~"
 truncate_to_repo = true
 style = "bold blue"
 
