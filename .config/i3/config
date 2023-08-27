@@ -303,6 +303,9 @@ for_window [class="(PollyMC)"] move to workspace $ws10
 # CS 1.6
 for_window [class="(hl_linux)"] move to workspace $ws10
 
+# Minetest
+for_window [class="(Minetest)"] move to workspace $ws10
+
 ####################################################################
 #                           R E G R A S                            #
 ####################################################################
