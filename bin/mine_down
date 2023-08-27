@@ -19,7 +19,7 @@ fi
 
 # instalando appimage
 cd $HOME/Franks/Games/Minecraft
-wget -c "https://github.com/fn2006/PollyMC/releases/download/7.1/PollyMC-Linux-7.1-x86_64.AppImage"
-chmod +x PollyMC-Linux-7.1-x86_64.AppImage
+wget -c "https://github.com/fn2006/PollyMC/releases/download/7.2/PollyMC-Linux-7.2-x86_64.AppImage"
+chmod +x PollyMC-Linux-7.2-x86_64.AppImage
 cd $HOME/.local/share/applications && wget -c "https://github.com/frannks/mydots/raw/main/PollyMC.desktop"
 cd $HOME && clear && exit 0
