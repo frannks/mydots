@@ -357,7 +357,7 @@ for_window [class="kitty" title="castnow"] move window to scratchpad
 #                           G A P S                                #
 ####################################################################
 
-gaps inner 4
+gaps inner 6
 gaps outer 0
 #border_radius 10
 #smart_gaps on
