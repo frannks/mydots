@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Franklin Souza
+# @FranklinTech
+
 # Root Checker
 if [ "$EUID" -ne 0 ]
   then echo "Execute esse script como ROOT!"
@@ -45,12 +48,11 @@ while true; do
   elif [ $OPC == '3' ] || [ $OPC == '03' ] ; then
     clear
     sudo fdisk -l
-    printf "Digite o pendrive aqui:\n\n"
+    printf "\n\nDigite o pendrive aqui:\n\n"
     read PENDRIVE_TYPE1
-    #sudo mkfs.vfta -I $PENDRIVE_TYPE1
-    sudo umount /dev/$PENDRIVE_TYPE1
-    sudo mkfs -t vfat /dev/$PENDRIVE_TYPE1
-    sudo eject /dev/$PENDRIVE_TYPE1
+    sudo mkfs.vfat -F 32 /dev/$PENDRIVE_TYPE1
+    clear && read -p 'Pendrive FORMATADO COM SUCESSO... PRESSIONE ENTER PARA CONTINUAR...' && continue
+    #sudo mkfs -t vfat /dev/$PENDRIVE_TYPE2
 
   elif [ $OPC == '4' ] || [ $OPC == '04' ] ; then
     clear
