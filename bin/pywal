@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Franklin Souza
+# @FranklinTech
+
 clear
 
 # Packages
@@ -26,92 +29,31 @@ while true ; do
 
   printf "Wallpaper definido: " && sed -n 3p ~/.cache/wal/colors.sh
   printf "\n\nEscolha uma das opções abaixo:\n\n"
-  printf "[1] - Baixar Wallpaper (via wget)\n"
-  printf "[2] - Definir Wallpaper (Pywal)\n"
-  printf "[3] - Wallpaper random (Pywal)\n"
-  printf "[4] - Renomear arquivo\n"
-  printf "[5] - Visualizar imagem\n"
-  printf "[6] - Definir palette no telegram\n"
-  printf "[7] - Remover wallpapers\n"
-  printf "\nPara sair pressione Ctrl+C \n\n"
+  printf "[1] - Definir Wallpaper (Pywal)\n"
+  printf "[2] - Wallpaper random (Pywal)\n"
+  printf "[3] - Baixar WallPack\n"
+  printf "[4] - Sair\n\n"
   read SELECTION
 
   if [ $SELECTION == '1' ] || [ $SELECTION == '01' ] ; then
-    clear
-    cd $DIR
-    printf "Cole o link do wallpaper aqui:\n\n"
-    read WALLPAPER_LINK
-    wget -c "$WALLPAPER_LINK"
-    read -p 'PRESS ENTER TO CONTINUE...' && continue
-
-  elif [ $SELECTION == '2' ] || [ $SELECTION == '02' ] ; then
     IFS=$'\n'
     mapfile -t array < <(find  ~/Wallpapers -regextype posix-egrep -regex '.*\.(jpg|png)' | \
     fzf --preview="if [[ {} =~ ('.jpg'|'.JPG'|'.jpeg'|'.png'|'.PNG')$ ]]; then "$IMG1" {}; elif [ -d {} ]; then ls --color=always --group-directories-first -H {}; else nl -pba -w1 -s' ' {};fi" --query="$1" --multi --select-1 --exit-0)
     [[ -n "${array[@]}" ]] && wal -i "${array[@]}" && $HOME/.config/dunst/./launchdunst.sh && wal-telegram --wal && cat /home/frank/.cache/wal/colors-kitty.conf > ~/.config/kitty/theme.conf && cat /home/frank/.cache/wal/colors-rofi-dark.rasi > ~/.config/rofi/config.rasi && i3-msg restart
     read -p 'PRESS ENTER TO CONTINUE...' && continue
 
-  elif [ $SELECTION == '3' ] || [ $SELECTION == '03' ] ; then
+  elif [ $SELECTION == '2' ] || [ $SELECTION == '02' ] ; then
     clear
     my_array=($HOME/Wallpapers/*)
     wal -i ${my_array[$(( $RANDOM % ${#my_array[@]}))]} && $HOME/.config/dunst/./launchdunst.sh && wal-telegram --wal && cat /home/frank/.cache/wal/colors-kitty.conf > ~/.config/kitty/theme.conf  && cat /home/frank/.cache/wal/colors-rofi-dark.rasi > ~/.config/rofi/config.rasi && i3-msg restart
     read -p 'PRESS ENTER TO CONTINUE...' && continue
 
-  elif [ $SELECTION == '4' ] || [ $SELECTION == '04' ] ; then
+  elif [ $SELECTION == '3' ] || [ $SELECTION == '03' ] ; then
      clear
-    cd $DIR && ls
-    printf "\nEscolha o arquivo que deseja renomear:\n\n"
-    read RENAME_FILE
-    printf "\nAgora digite o novo nome do arquivo:\n\n"
-    read FILE_RENAME
-    mv "$RENAME_FILE" "$FILE_RENAME"
-    read -p 'PRESS ENTER TO CONTINUE...' && continue
+     clear && read -p 'DESENVOLVIMENTO...' && continue
   
-  elif [ $SELECTION == '5' ] || [ $SELECTION == '05' ] ; then
-    IFS=$'\n'
-    mapfile -t array < <(find  ~/Wallpapers -regextype posix-egrep -regex '.*\.(jpg|png)' | \
-    fzf-tmux --query="$1" --multi --select-1 --exit-0)
-    [[ -n "${array[@]}" ]] && feh "${array[@]}"
+  elif [ $SELECTION == '4' ] || [ $SELECTION == '04' ] ; then
+    clear && exit 0
+  fi
   
-  elif [ $SELECTION == '6' ] || [ $SELECTION == '06' ] ; then
-    clear
-    #wal-telegram --wal && sleep 2
-    printf "Desativado\n\n" && read -p 'PRESS ENTER TO CONTINUE...' && continue
-
-  elif [ $SELECTION == '7' ] || [ $SELECTION == '07' ] ; then
-    clear
-    printf "Escolha sua opção:\n\n"
-    printf "[1] - Apagar wallpapers (Pode mais de um)\n"
-    printf "[2] - Apagar todos wallpapers\n\n"
-    read DELETE_WALL
-
-    if [ $DELETE_WALL == '1' ] || [ $DELETE_WALL == '01' ] ; then
-      clear
-      cd $DIR && ls
-      printf "\nDigite o nome do(s) wallpaper(s):\n\n"
-      read NAME_WALL
-      cd $DIR && rm -rf $NAME_WALL
-      read -p "Wallpaper(s) $NAME_WALL deletado(s)! PRESS ENTER TO CONTINUE..." && continue
-
-    elif [ $DELETE_WALL == '2' ] || [ $DELETE_WALL == '02' ] ; then
-      clear
-      cd $DIR && ls
-      printf "\nDeseja apagar todos os wallpapers?(y/n):\n\n"
-      read YN
-      read -p 'TODOS OS WALLPAPERS DELETADOS - PRESS ENTER TO CONTINUE...' && continue
-      
-      if [ $YN == 'y' ] || [ $YN == 'Y' ] ; then
-        cd $DIR && echo 'Apagando...' && sleep 2 && rm -rf * &&echo 'Apagado com sucesso.' && clear
-        read -p 'TODOS OS WALLPAPERS DELETADOS - PRESS ENTER TO CONTINUE...'
-        continue
-
-      elif [ $YN == 'n' ] || [ $YN == 'N' ] ; then
-        printf "Wallpapers não apagados..."
-        read -p 'PRESS ENTER TO CONTINUE...' && continue
-
-      else
-        read -p 'Opção inválida... PRESS ENTER TO CONTINUE...' && continue
-  fi
-    fi
-  fi
-done
+ done
