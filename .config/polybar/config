@@ -702,6 +702,7 @@ label = "%{F${colors.foreground  %{F-} %output:0:36:...%"
 #format-underline = #98971a
 #format-background = #98971a
 click-left = notify-send "$(cal)"
+click-right = $HOME/.config/polybar/scripts/calendar.sh
 
 [module/colorpicker]
 type = custom/text

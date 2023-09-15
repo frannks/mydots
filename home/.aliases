@@ -105,7 +105,7 @@ alias cl='paclist chaotic-aur'
 alias lfs='dysk'
 alias bt='journalctl -xeb | less'
 alias gh="$HOME/Scripts/gh.sh"
-alias neofetch="fastfetch"
+alias neofetch="clear && fastfetch"
 alias cel='$HOME/Scripts/cel-mount.sh'
 alias cel1='$HOME/Scripts/scrcpy-cli.sh'
 alias yt='ytfzf --pages=30 -t "$@"'
