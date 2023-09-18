@@ -5,11 +5,11 @@
 
 # Variáveis
 # Solicita o nome do usuário
-read -p "Digite seu nome de usuário do GitHub: " username
+clear && read -p "Digite seu nome de usuário do GitHub: " username
 printf "\n" && read -p "Digita o nome do repositorio: " repository
 
 # Token de acesso pessoal
-token="SEU_TOKEN_AQUI"
+token="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"
 
 # Verifica se o repositório existe
 DIR="$HOME/Franks/Projetos/Repository/"$repository""
