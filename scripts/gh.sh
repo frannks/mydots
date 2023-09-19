@@ -9,7 +9,7 @@ clear && read -p "Digite seu nome de usuário do GitHub: " username
 printf "\n" && read -p "Digita o nome do repositorio: " repository
 
 # Token de acesso pessoal
-token="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"
+token="ADICIONE SEU TOKEN AQUI"
 
 # Verifica se o repositório existe
 DIR="$HOME/Franks/Projetos/Repository/"$repository""
