@@ -88,7 +88,7 @@ separator = |
 
 modules-left = statusmusic prev-cmus play-cmus next-cmus repeat-cmus
 modules-center = clima
-modules-right = pulse info-redshift-temp calendar date powermenu
+modules-right = pulse pacman info-redshift-temp cpu memory swap calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
@@ -348,36 +348,36 @@ label-separator-foreground = ${colors.foreground}
 #                          MÓDULO CPU                           #
 #################################################################
 
-#[module/cpu]
-#type = internal/cpu
-#interval = 5
-#format-prefix = "  "
-#format-prefix-foreground = ${colors.foreground}
-#format-underline = ${colors.foreground}
-#label = %percentage%%
-#warn-percentage = 90
+[module/cpu]
+type = internal/cpu
+interval = 5
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground}
+format-underline = ${colors.foreground}
+label = %percentage%%
+warn-percentage = 90
 
 #################################################################
 #                            MÓDULO MEMORY                      #
 #################################################################
 
-#[module/memory]
-#type = internal/memory
-#interval = 15
-#format-prefix = "  "
-#format-prefix-foreground = ${colors.foreground}
-#format-underline = ${colors.foreground}
-#label = %percentage_used%%
-#warn-percentage = 90
+[module/memory]
+type = internal/memory
+interval = 15
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground}
+format-underline = ${colors.foreground}
+label = %percentage_used%%
+warn-percentage = 90
 
-#[module/swap]
-#type = internal/memory
-#interval = 15
-#format-prefix = "  "
-#format-prefix-foreground = ${colors.foreground}
-#format-underline = ${colors.foreground}
-#label = %percentage_swap_used%%
-#warn-percentage = 90
+[module/swap]
+type = internal/memory
+interval = 15
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground}
+format-underline = ${colors.foreground}
+label = %percentage_swap_used%%
+warn-percentage = 90
 
 #################################################################
 #                            MÓDULO DATE                        #
