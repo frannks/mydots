@@ -20,6 +20,6 @@ c = getNodes(j)
 
 
 if c > 0:
-    print("  Scraptchad: %d" % c)
+    print("  Scratchpad: %d" % c)
 else:
-    print(" Scraptchad: %d" % c)
+    print(" Scratchpad: %d" % c)
