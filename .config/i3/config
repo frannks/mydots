@@ -38,10 +38,10 @@ set $win Mod4
 # //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 # Matar compositor - picom
-#bindsym $win+F4 exec --no-startup-id killall picom
+bindsym $win+F4 exec --no-startup-id killall picom
 
 # Iniciar compositor com sombreamento - picom
-#bindsym $win+F5 exec --no-startup-id picom --config ~/.config/picom.conf
+bindsym $win+F5 exec --no-startup-id picom --config ~/.config/picom.conf
 #exec --no-startup-id picom --config ~/.config/picom.conf
 
 ####################################################################
@@ -360,7 +360,7 @@ for_window [class="kitty" title="castnow"] move window to scratchpad
 #                           G A P S                                #
 ####################################################################
 
-gaps inner 6
+gaps inner 2
 gaps outer 0
 #border_radius 10
 #smart_gaps on
