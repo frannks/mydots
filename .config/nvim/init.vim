@@ -65,6 +65,10 @@ Plug 'tamton-aquib/staline.nvim'
 "Scrolling
 Plug 'karb94/neoscroll.nvim'
 
+"Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+
 call plug#end()
  
 "Cursor
@@ -185,7 +189,6 @@ vmap cp "+y
 nmap c "+p
 
 "Markdown
-"nmap <C-p> <Plug>MarkdownPreview
 nmap <C-p> <Plug>MarkdownPreviewToggle
 
 "Make <CR> to accept selected completion item or notify coc.nvim to format
