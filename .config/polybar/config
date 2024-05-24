@@ -640,7 +640,7 @@ interval = 1
 type = custom/script
 interval = 600
 exec = ~/.config/polybar/scripts/updates-arch.sh
-#click-left = kitty -e ~/.config/polybar/scripts/updates-archlinux.sh &
+click-left = kitty --hold bash -c "sudo pacman -Sy && pacman -Qu"
 
 [module/pacman]
 type = custom/script
