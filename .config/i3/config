@@ -134,7 +134,9 @@ bindsym $win+b exec --no-startup-id setxkbmap br # -> Brasileiro
 bindsym $win+t exec --no-startup-id $HOME/.local/bin/telegram
 
 # Bloquear tela
-bindsym $win+x exec --no-startup-id lockscreen
+#bindsym $win+x exec --no-startup-id lockscreen
+bindsym $win+x exec --no-startup-id "i3lock -c 000000 -i ~/Wallpapers/004.png"
+#bindsym $win+x exec --no-startup-id "i3lock -c 000000"
 
 # Iniciar Gravação de Tela (SimpleScreenRecorder)
 bindsym $win+F8 exec --no-startup-id simplescreenrecorder --start-hidden # -> Iniciar o ssr
@@ -360,7 +362,7 @@ for_window [class="kitty" title="castnow"] move window to scratchpad
 #                           G A P S                                #
 ####################################################################
 
-gaps inner 2
+gaps inner 6
 gaps outer 0
 #border_radius 10
 #smart_gaps on
@@ -424,6 +426,9 @@ exec_always --no-startup-id $HOME/.config/dunst/launchdunst.sh
 
 # Layout do teclado
 exec --no-startup-id setxkbmap br
+
+# Spotifyd
+exec --no-startup-id spotifyd
 
 # Redshift
 exec --no-startup-id redshift -c ~/.config/redshift/redshift.conf

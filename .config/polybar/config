@@ -86,9 +86,9 @@ separator = |
 #                        MÓDULOS BARRA CIMA                     #
 #################################################################
 
-modules-left = statusmusic prev-cmus play-cmus next-cmus repeat-cmus
-modules-center = clima
-modules-right = pulse pacman info-redshift-temp cpu memory swap calendar date powermenu
+modules-left =
+modules-center = bitcoin
+modules-right = pulse calendar date powermenu
 
 #################################################################
 #                        OPTIONS IGNORE                         #
@@ -572,6 +572,12 @@ interval =
 #                      ALGUNS MÓDULOS CRIADOS                   #
 #################################################################
 
+[module/bitcoin]
+type = custom/script
+exec = ~/.config/polybar/scripts/btc.sh
+tail = true
+interval = 600
+
 [module/search]
 type = custom/text
 content = " Search"
@@ -640,7 +646,7 @@ interval = 1
 type = custom/script
 interval = 600
 exec = ~/.config/polybar/scripts/updates-arch.sh
-click-left = kitty --hold bash -c "sudo pacman -Sy && pacman -Qu"
+click-left = kitty --hold bash -c "sudo pacman -Sy && pacman -Qu && paru -Qua"
 
 [module/pacman]
 type = custom/script
