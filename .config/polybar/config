@@ -87,7 +87,7 @@ separator = |
 #################################################################
 
 modules-left =
-modules-center = bitcoin
+modules-center = linux
 modules-right = pulse calendar date powermenu
 
 #################################################################
